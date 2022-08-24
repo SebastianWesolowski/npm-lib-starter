@@ -1,0 +1,8 @@
+node_modules
+distTS
+lib/*
+*.scss
+*.svg
+.eslintrc.js
+.storybook/**
+dist/*
