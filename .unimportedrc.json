@@ -7,6 +7,7 @@
     "@storybook/react",
     "@testing-library/jest-dom",
     "@wojtekmaj/enzyme-adapter-react-17",
+    "cross-env",
     "git-cz",
     "git-cz-husky",
     "husky",
