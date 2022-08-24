@@ -23,10 +23,12 @@
     "build:clear": "rimraf distTS",
     "semantic-release": "semantic-release --branches main",
     "lint": "run-s format:check lint:parallel",
-    "lint:parallel": "run-p lint:check style:check",
+    "lint:parallel": "run-p lint:check style:check:strict",
     "lint:check": "eslint \"./src/**/*.+(js|jsx|ts|tsx)\" --cache",
-    "lint:check:staged": "eslint -ext .js, .jsx, .ts, .tsx --cache",
-    "lint:fix": "run-s format \"lint:check -- --fix\"",
+    "lint:check:strict": "cross-env NODE_ENV=strictRules npm run lint:check -- --report-unused-disable-directives",
+    "lint:check:staged": "eslint . --ext .js,.jsx,.ts,.tsx --cache",
+    "lint:fix": "run-s format \"lint:check -- --fix\" style:fix",
+    "lint:fix:strict": "cross-env NODE_ENV=strictRules npm run lint:fix -- --report-unused-disable-directives",
     "format": "run-s format:check format:write",
     "format:check": "prettier --check \"./**/*.+(js|jsx|ts|tsx|json)\" --ignore-unknown",
     "format:write": "prettier --write \"./**/*.+(js|jsx|ts|tsx|json)\" --ignore-unknown",
@@ -34,16 +36,25 @@
     "style:check": "stylelint \"src/**/*.+(scss|css)\" --cache",
     "style:check:staged": "stylelint \"*.{scss,css}\" --cache",
     "style:fix": "run-s format \"style:check -- --fix\"",
-    "acp": "git add . && npm run commit && git push",
-    "commit": "git-cz",
-    "new": "hygen new component --section components"
+    "new": "hygen new component --section components",
+    "prepare": "husky install",
+    "husky:prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+    "husky:pre-commit": "lint-staged -c ./.husky/lint-staged.config.json",
+    "husky:pre-push": "run-s lint quality:check:* build",
+    "husky:commit-msg": "commitlint --edit"
   },
   "dependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "@storybook/addon-docs": "^6.5.10",
     "@storybook/react": "^6.5.10",
     "@testing-library/jest-dom": "^5.14.1",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
     "enzyme": "^3.11.0",
-    "@storybook/addon-docs": "^6.5.10"
+    "git-cz": "^4.9.0",
+    "git-cz-husky": "^0.1.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
@@ -129,7 +140,17 @@
     "storybook-readme": "^5.0.9",
     "stream-browserify": "^3.0.0",
     "style-loader": "^3.3.1",
-    "stylelint-config-tailwindcss": "^0.0.6",
+    "stylelint": "^14.7.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^25.0.0",
+    "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint-config-tailwindcss": "^0.0.3",
+    "stylelint-no-unresolved-module": "^2.0.0",
+    "stylelint-no-unsupported-browser-features": "^5.0.3",
+    "stylelint-order": "^5.0.0",
+    "stylelint-prettier": "^2.0.0",
+    "stylelint-scss": "^4.2.0",
     "tailwind-merge": "^1.6.0",
     "tailwindcss": "^3.1.8",
     "ts-jest": "^27.1.2",
@@ -167,7 +188,7 @@
   ],
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "git-cz"
     }
   },
   "engines": {

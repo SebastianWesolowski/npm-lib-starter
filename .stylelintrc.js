@@ -1,6 +1,6 @@
-const browsersList = require("./tools/transform-browser-list/index")(
-  "./.browserslistrc"
-);
+// const browsersList = require("./tools/transform-browser-list/index")(
+//   "./.browserslistrc"
+// );
 
 module.exports = {
   extends: [
@@ -43,13 +43,6 @@ module.exports = {
           "responsive",
           "screen",
         ],
-      },
-    ],
-    "plugin/no-unsupported-browser-features": [
-      true,
-      {
-        browsers: browsersList,
-        ignorePartialSupport: true,
       },
     ],
   },

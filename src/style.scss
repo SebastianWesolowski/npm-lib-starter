@@ -121,6 +121,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+
   /* https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth  */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -134,17 +135,17 @@
 }
 
 html {
-  -ms-overflow-style: none;
-  overflow-y: scroll;
-  scrollbar-width: none;
   overflow-x: hidden;
+  overflow-y: scroll;
   color: #000;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 body {
   min-height: 100vh;
   scroll-behavior: smooth;
-  text-rendering: optimizeSpeed;
+  text-rendering: optimizespeed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
@@ -154,9 +155,10 @@ body,
 html {
   width: 100%;
   height: 100%;
-  vertical-align: baseline;
   margin: 0;
+  vertical-align: baseline;
   background: #fff;
+
   /* remove margin for the main div that Gatsby mounts into */
   > div {
     margin-top: 0;
@@ -164,8 +166,8 @@ html {
 }
 
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
 
 button:focus {
@@ -173,6 +175,6 @@ button:focus {
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }

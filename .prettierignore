@@ -41,3 +41,18 @@ CHANGELOG.md
 
 # reports
 /reports
+
+
+storybook-static
+
+*.manager.bundle.js
+babel.config.js
+changelog.config.js
+commitlint.config.js
+jest.config.js
+jest/componentsMock.tsx
+jest/fileMock.ts
+postcss.config.js
+rollup.config.js
+tailwind.config.js
+tools/transform-browser-list/index.js
