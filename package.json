@@ -39,6 +39,8 @@
     "style:fix": "run-s format \"style:check -- --fix\"",
     "new": "hygen new component --section components",
     "prepare": "husky install",
+    "quality:check:jscpd": "jscpd ./src/",
+    "quality:check:unimported": "unimported",
     "husky:prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
     "husky:pre-commit": "lint-staged -c ./.husky/lint-staged.config.json",
     "husky:pre-push": "run-s lint quality:check:* build",
@@ -55,8 +57,10 @@
     "git-cz": "^4.9.0",
     "git-cz-husky": "^0.1.1",
     "husky": "^8.0.1",
+    "jscpd": "^3.4.5",
     "lint-staged": "^13.0.3",
-    "react-test-renderer": "^18.2.0"
+    "react-test-renderer": "^18.2.0",
+    "unimported": "^1.21.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
