@@ -37,6 +37,7 @@
     "style:check": "stylelint \"./src/**/*.+(css|scss|sass)\" --cache",
     "style:check:staged": "stylelint \"*.+(css|scss|sass)\" --cache",
     "style:check:strict": "cross-env NODE_ENV=strictRules npm run style:check --",
+    "style:fix": "run-s \"style:check -- --fix\"",
     "new": "hygen new component --section components",
     "prepare": "husky install",
     "quality:check:jscpd": "jscpd ./src/",
