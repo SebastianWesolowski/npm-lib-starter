@@ -2,6 +2,15 @@
 to: <%= absPath %>/<%= component_name %>.stories.tsx
 ---
 import { ComponentStory, ComponentMeta } from "@storybook/react";
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary as PrimaryDoc,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from "@storybook/addon-docs";
 import { <%= component_name %> } from "./<%= component_name %>";
 import README from "./README.md";
 
@@ -11,7 +20,6 @@ export default {
   component: <%= component_name %>,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    backgroundColor: { control: "color" },
     dummy: {
       name: "dummy",
       type: { name: "string", required: true },
@@ -27,8 +35,18 @@ export default {
     },
   },
   parameters: {
-    readme: {
-      sidebar: README,
+    docs: {
+      page: () => (
+        <>
+          <Title />
+          <hr />
+          <Subtitle />
+          <Description markdown={README} />
+          <PrimaryDoc />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+        </>
+      ),
     },
   },
 } as ComponentMeta<typeof <%= component_name %>>;

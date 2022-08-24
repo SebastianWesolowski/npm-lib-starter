@@ -1,8 +1,11 @@
-const packageJson = require("./package.json");
+const browsersList = require("./tools/transform-browser-list/index")(
+  "./.browserslistrc"
+);
 
 module.exports = {
   extends: [
     "stylelint-config-standard-scss",
+    "stylelint-config-tailwindcss",
     "stylelint-prettier/recommended",
     "stylelint-config-rational-order",
   ],
@@ -12,14 +15,41 @@ module.exports = {
     "stylelint-no-unsupported-browser-features",
   ],
   rules: {
-    "plugin/no-unresolved-module": true,
-    "at-rule-no-unknown": null,
-    "scss/at-rule-no-unknown": true,
+    "selector-class-pattern": "^[a-zA-Z0-9-_]+$",
+    "plugin/no-unresolved-module": null,
+    "at-rule-no-unknown": [
+      true,
+      {
+        ignoreAtRules: [
+          "tailwind",
+          "apply",
+          "layer",
+          "variants",
+          "responsive",
+          "screen",
+        ],
+      },
+    ],
+    "declaration-block-trailing-semicolon": null,
+    "no-descending-specificity": null,
+    "scss/at-rule-no-unknown": [
+      true,
+      {
+        ignoreAtRules: [
+          "tailwind",
+          "apply",
+          "layer",
+          "variants",
+          "responsive",
+          "screen",
+        ],
+      },
+    ],
     "plugin/no-unsupported-browser-features": [
       true,
       {
-        browsers: packageJson.browserslist,
-        ignorePartialSupport,
+        browsers: browsersList,
+        ignorePartialSupport: true,
       },
     ],
   },

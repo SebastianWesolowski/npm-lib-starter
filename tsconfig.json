@@ -24,7 +24,6 @@
     "strict": true,
     "target": "es5",
     "paths": {
-      "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"],
       "components": ["./components"],
       "components/*": ["./components/*"],
       "atoms": ["./components/atoms"],

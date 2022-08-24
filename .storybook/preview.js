@@ -1,9 +1,5 @@
-import { ThemeProvider as MUIThemeProvider } from "@mui/material/styles";
-import { ThemeProvider } from "emotion-theming";
-
 import { addReadme } from "storybook-readme";
-import theme from "../src/stylesheet";
-import { GlobalStyles } from "../src/styled";
+import "../src/style.scss";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -18,12 +14,4 @@ export const parameters = {
   },
 };
 
-export const decorators = [
-  (Story) => (
-    <MUIThemeProvider theme={theme}>
-      <GlobalStyles />
-      <ThemeProvider theme={theme}>{Story()}</ThemeProvider>
-    </MUIThemeProvider>
-  ),
-  addReadme(),
-];
+export const decorators = [(Story) => <>{Story()}</>, addReadme()];
