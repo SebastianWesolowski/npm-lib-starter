@@ -1,8 +1,5 @@
----
-to: <%= absPath %>/<%= component_name %>.spec.tsx
----
 describe("Components", () => {
-  describe("<%= component_name %>", () => {
+  describe("SButton", () => {
     it("should render without errors", () => {
       expect(true).toStrictEqual(true);
     });
