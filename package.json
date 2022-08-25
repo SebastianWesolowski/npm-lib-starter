@@ -1,5 +1,5 @@
 {
-  "name": "npm-lib-starter",
+  "name": "test-lib-seb",
   "version": "0.0.0-development",
   "scripts": {
     "start": "react-scripts start",
@@ -206,15 +206,15 @@
     "node": ">=14.19.0"
   },
   "license": "MIT",
-  "description": "npm-lib-starter React Component Library",
+  "description": "test-lib-seb React Component Library",
   "author": "Sebastian Wesolowski",
-  "homepage": "https://github.com/SebastianWesolowski/npm-lib-starter",
+  "homepage": "https://github.com/SebastianWesolowski/test-lib-seb",
   "bugs": {
-    "url": "https://github.com/SebastianWesolowski/npm-lib-starter/issues"
+    "url": "https://github.com/SebastianWesolowski/test-lib-seb/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SebastianWesolowski/npm-lib-starter.git"
+    "url": "https://github.com/SebastianWesolowski/test-lib-seb.git"
   },
   "transform": {
     "\\.tsx$": "<rootDir>/node_modules/babel-jest"

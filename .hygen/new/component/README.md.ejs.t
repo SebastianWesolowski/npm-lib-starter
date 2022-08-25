@@ -4,7 +4,7 @@ to: <%= absPath %>/README.md
 ### Usage
 
 ```tsx
-import { <%= component_name %> } from "npm-lib-starter";
+import { <%= component_name %> } from "test-lib-seb";
 ```
 
 <!-- ## TOOD

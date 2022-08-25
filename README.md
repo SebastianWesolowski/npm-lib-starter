@@ -1,8 +1,8 @@
-# npm-lib-starter
+# test-lib-seb
 
-npm-lib-starter React Component Library
+test-lib-seb React Component Library
 
-![npm](https://img.shields.io/npm/v/npm-lib-starter)
+![npm](https://img.shields.io/npm/v/test-lib-seb)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e5fcbdce-6359-4c09-af9e-e77fec0eef12/deploy-status)](https://app.netlify.com/sites/nervous-newton-b8aff0/deploys)
 
@@ -11,7 +11,7 @@ npm-lib-starter React Component Library
 Import css file from package
 
 ```tsx
-import "npm-lib-starter/lib/main.css";
+import "test-lib-seb/lib/main.css";
 ```
 
 # How to develop
