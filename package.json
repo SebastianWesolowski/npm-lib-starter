@@ -22,7 +22,7 @@
     "compile:alias": "tsc-alias -p ./tsconfig.compile.json",
     "compile:copy": "copyfiles -u 1 \"./src/**/*.+(png|svg|scss)\"  distTS",
     "build:clear": "rimraf distTS",
-    "semantic-release": "semantic-release --branches main",
+    "semantic-release": "semantic-release",
     "lint": "run-s format:check lint:parallel",
     "lint:parallel": "run-p lint:check style:check:strict",
     "lint:check": "eslint \"./src/**/*.+(js|jsx|ts|tsx)\" --cache",
@@ -45,7 +45,8 @@
     "husky:prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
     "husky:pre-commit": "lint-staged -c ./.husky/lint-staged.config.json",
     "husky:pre-push": "run-s lint quality:check:* build",
-    "husky:commit-msg": "commitlint --edit"
+    "husky:commit-msg": "commitlint --edit",
+    "release-setup": "semantic-release-cli setup"
   },
   "dependencies": {
     "@commitlint/cli": "^17.0.3",
@@ -143,7 +144,8 @@
     "rollup-plugin-terser": "^7.0.2",
     "sass": "^1.54.5",
     "sass-loader": "10",
-    "semantic-release": "^18.0.1",
+    "semantic-release": "^19.0.5",
+    "semantic-release-cli": "^5.4.4",
     "storybook-addon-outline": "^1.4.2",
     "storybook-addon-sass-postcss": "^0.1.3",
     "storybook-readme": "^5.0.9",
